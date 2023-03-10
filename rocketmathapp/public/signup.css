@@ -1,0 +1,291 @@
+:root {
+    --light-purple: (rgb(153, 15, 233));
+    --black: (rgb(0,0,0));
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: 'Prosto One', cursive;
+    transition: all;
+    transition: .5s ease-in-out;
+    
+}
+
+body {
+    min-height: 100vh;
+}
+
+.signup-container {
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    background: -webkit-linear-gradient(45deg, rgb(29, 25, 25), rgb(0,0,0));
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    transition: all .5s ease-in-out;
+}
+
+.log-in-info {
+    width: 400px;
+    height: 530px;
+    position: relative;
+    margin-top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    background: #ffff;
+    padding: 5px;
+    opacity: 1;
+    transition: all .5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+.signup-info {
+    width: 400px;
+    height: 530px;
+    position: relative;
+    margin-top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    background: #ffff;
+    padding: 5px;
+    opacity: 1;
+    transition: all .5s ease-in-out;
+}
+
+.icons {
+    text-align: center;
+    margin: 30px auto;
+    
+}
+
+.icons img {
+    width: 40px;
+    cursor: pointer;
+    animation: fadeIn .5s linear;
+    animation-iteration-count: 1;
+}
+
+
+.button-box {
+    color: black;
+    width: 250px;
+    margin: 35px auto;
+    border-radius: 30px;
+    position: relative;
+}
+
+.toggle-btn {
+   cursor: pointer;
+   padding: 10px 30px;
+   background: transparent;
+   border: 0;
+   outline: none;
+   position: relative;
+   color: black;
+}
+
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 125px;
+    height: 100%;
+    border-radius: 30px;
+    
+}
+
+#log-in-btn {
+    right: 0;
+    top: 0;
+    position: absolute;
+    width: 130px;
+    height: 100%;
+    border-radius: 30px;
+    
+    
+}
+
+
+.signup-container .singup-input {
+    top: 0px;
+    position: absolute;
+    width: 90%;
+    
+    margin: 10px auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+
+}
+
+
+
+.signup-container .singup-input .input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px auto;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    color: black;
+    background: transparent;
+    outline: none;
+    animation: fadeIn .5s linear;
+    animation-iteration-count: 1;
+    
+}
+
+.signup-container .signup-info span {
+    color: black;
+    font-size: 1em;
+    bottom: 108px;
+    position: absolute;
+    animation: fadeIn .5s linear;
+    animation-iteration-count: 1;
+
+}
+
+.signup-container .singup-input .submit-btn {
+    width: 40%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    
+    color: black;
+    animation: fadeIn .5s linear;
+    animation-iteration-count: 1;
+}
+
+.signup-container .signup-info .check-box {
+   margin: 30px 10px 30px 0;
+
+}
+
+.sign-in-button-lg {
+    background: linear-gradient(to right, rgb(12,188,219), #01B0FB);
+}
+.sign-in-shadow {
+    box-shadow: 0 0 25px rgb(12, 188, 219);
+}
+
+.sign-in-border {
+    border: 3px solid rgb(12, 188, 219);
+}
+
+.sign-in-button-shadow {
+    box-shadow: 0 0 5em .1em rgb(12, 188, 219);
+}
+
+.sign-in-border-bottom {
+    border-bottom: 2px solid rgb(12, 188, 219) ;
+}
+
+.sign-in-button-margin {
+    margin: 20px auto;
+}
+.log-in-shadow {
+    box-shadow: 0 0 25px #D578FC;
+}
+
+.log-in-border {
+    border: 3px solid #D578FC;
+}
+
+.log-in-button-shadow {
+    box-shadow: 0 0 5em .1em #D578FC;
+}
+
+.log-in-border-bottom {
+    border-bottom: 2px solid #D578FC;
+
+}
+
+.log-in-button-lg {
+    
+    background: linear-gradient(to right, #D578FC, #AF51FD );
+}
+
+
+.log-in-button-margin {
+     margin: 50px auto;
+}
+
+.return-button-container {
+    position: relative;
+}
+.return-button-container .return-button {
+    margin: 5px auto;
+    display: flex;
+    align-content: center;
+    padding: 10px 5px;
+    background-color: transparent;
+    font-size: 1.2em;
+    letter-spacing: .05em;
+    position: relative;
+}
+
+.return-button-container .return-button::before {
+
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #ffff;
+    transition: .25s ease-in-out;
+
+}
+
+.return-button-container .return-button::after {
+    content: '';
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #ffff;
+    transition: .25s ease-in-out;
+}
+
+.return-button-container .return-button:hover::before {
+    left: 0;
+    width: 50%;
+    transition: .25s ease-in-out;
+}
+
+.return-button-container .return-button:hover::after {
+    right: 0;
+    width: 50%;
+    transition: .25s ease-in-out;
+}
+
+
+.submit-btn:hover {
+    scale: 1.2;
+}
+
+
