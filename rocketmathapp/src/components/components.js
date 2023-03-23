@@ -12,10 +12,12 @@ import Practice from './Practice';
 import Casual from './Casual';
 import Playlist from './Playlist';
 import Ranked from './Ranked';
+import Contact from './Contact';
+import FAQ from './FAQ';
 
 export {
     Navbar,Sidebar, Dashboard, Card, Signup, LoginNavbar, HowToPlay, 
-    Shop, GameModes,GameModeCard, Practice, Casual, Playlist, Ranked
+    Shop, GameModes,GameModeCard, Practice, Casual, Playlist, Ranked, Contact, FAQ
 };
 
 

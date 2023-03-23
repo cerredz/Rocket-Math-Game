@@ -675,6 +675,18 @@ body {
     .casual-container .astronaut-4 {
         display: none;
     }
+
+    .contact-container .contact-info .contact-info-image {
+        scale: 0;
+    }
+
+    .contact-container .contact-info .contact-info-text {
+        transform: translateX(-55%);
+    }
+    .contact-container .contact-info {
+        width: 800px;
+    }
+   
 }
 @media (max-width: 1150px) {
 
@@ -720,11 +732,7 @@ body {
     .game-mode-info {
         flex-direction: column;
     }
-
     
-   
-    
-
 
 }
 @media (max-width: 700px) {
@@ -835,6 +843,19 @@ body {
     .casual-container .dab-astronaut {
         display: none;
     }
+    .contact-container .contact-info  {
+        background:#100F0F;
+    }
+    .contact-container .contact-info {
+        
+        scale: .65;
+        transform: translateY(-20%);
+    }
+
+    .contact-container .heading {
+        scale: .75;
+    }
+
 
     
 
@@ -1266,6 +1287,249 @@ body {
 .rankup-image-container img{
     width: 80px;
 }
+
+
+.contact-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #100F0F;
+}
+
+
+.contact-container .heading {
+    font-size: 4em;
+    letter-spacing: 10px;
+    font-style: italic;
+    font-variant: small-caps;
+}
+
+
+.contact-container .contact-info {
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
+    min-width: 300px;
+    max-width: 1250px;
+    border: 2px solid #181818;
+    box-shadow: 0 0 4em #181818;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+   
+}
+
+.contact-container .contact-info .contact-info-image {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    background: #181818;
+    border-radius: 15px;
+
+}
+
+
+.contact-container .contact-info .contact-info-image h1 {
+    letter-spacing: 5px;
+    font-weight: 100;
+    word-spacing: 5px;
+    font-size: 2em;
+    margin: 0 30px;
+} 
+
+.contact-container .contact-info .contact-info-image h3 {
+    width: 400px;
+    font-weight: 100;
+    word-spacing: 5px;
+    font-size: 1.2em;
+    text-align: center;
+} 
+
+
+.contact-container .contact-info .contact-info-image img {
+    width: 200px;
+    margin: 76px 10px;
+}
+
+.contact-container .contact-info .contact-info-text {
+    flex: 1;
+    padding: 25px;
+} 
+
+
+
+.contact-container .contact-info .contact-info-text form {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+}
+
+
+.contact-container .contact-info .contact-info-text .username-label {
+    letter-spacing: 3px;
+    transform: translateX(-170%);
+    margin-bottom: 5px;
+}
+
+.contact-container .contact-info .contact-info-text .email-label {
+    letter-spacing: 3px;
+    transform: translateX(-355%);
+    margin-bottom: 5px;
+}
+
+.contact-container .contact-info .contact-info-text .message-label {
+    letter-spacing: 3px;
+    transform: translateX(-194%);
+    margin-bottom: 5px;
+}
+
+
+
+.contact-info-text .contact-input {
+    background: rgba(255, 255, 255, .05);
+    width: 500px;
+    padding: 15px 25px;
+    margin: 0 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.1);
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+}
+
+.contact-info-text .contact-input::placeholder {
+    color: rgba(255, 255, 255, .1);
+    letter-spacing: 5px;
+
+}
+
+.contact-info-text .contact-info-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-size: 1.4em;
+    color: black;
+    background: white;
+    letter-spacing: 3px;
+    font-variant: small-caps;
+    font-weight: 700;
+    transition: .2s ease-in-out;
+    
+}
+
+.contact-info-text textarea {
+    background: rgba(255, 255, 255, .05);
+    width: 500px;
+    padding: 15px 25px;
+    margin: 0 40px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.15);
+    margin-bottom: 20px;
+    min-height: 200px;
+    letter-spacing: 3px;
+}
+
+.contact-info-text textarea::placeholder {
+    color: rgba(255, 255, 255, .1);
+    letter-spacing: 5px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.faq-container {
+    position: relative;
+    top: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.faq-container .FAQ-title {
+    font-size: 4em;
+    letter-spacing: 5px;
+    font-style: italic;
+    font-weight: 800;
+    font-variant: small-caps;
+    text-shadow: 0 0 .5em white;
+    margin-bottom: 30px;
+}
+
+.question-container {
+    width: 900px;
+    padding: 15px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, .05);
+    border-radius: 5px;
+    position: relative;
+    text-align: left;
+    
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.question-container .question-number {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+.question-container h3 {
+    font-family: 'Chango', cursive;
+}
+.question-container .question-title {
+    display: inline-block;
+    letter-spacing: 1px;
+    
+}
+
+.question-container .question-title span {
+    font-size: 1.1em;
+    margin: 0 20px;
+    position: relative;
+    padding: 0 5px;
+    
+}
+
+.question-container .question-title span::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 150%;
+    border-left: 2px solid rgba(255, 255, 255, .2);
+    transform: translateX(-7px);
+}
+
+.question-container .question-title img {
+    width: 40px;
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+.question-container .faq-answer p{
+    margin: 10px 40px 10px;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

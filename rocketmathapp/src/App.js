@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { Ranked,Playlist, Navbar, Sidebar, Dashboard, Signup, LoginNavbar, HowToPlay, Shop, GameModes, } from './components/components';
+import { FAQ, Contact, Ranked, Playlist, Navbar, Sidebar, Dashboard, Signup, LoginNavbar, HowToPlay, Shop, GameModes, } from './components/components';
 
 
 
@@ -15,9 +15,12 @@ function App(props) {
   const [practice, setPractie] = useState(false);
   const [casual, setCasual] = useState(false);
   const [ranked, setRanked] = useState(false);
+  const [contact, setContact] = useState(false);
+  const [faq, setFaq] = useState(false);
+  const [leaderboard, setLeaderboard] = useState(false);
 
   const [userEmail, setUserEmail] = useState("");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("retto");
 
   const [activeSidebarIndex, setActiveSidebarIndex] = useState(1);
 
@@ -33,8 +36,16 @@ function App(props) {
     setActiveSidebarIndex(1);
     setHomePage(true);
     setGameModes(false);
-
   }
+
+  const goBackContact = () => {
+    setActiveSidebarIndex(1);
+    setHomePage(true);
+    setContact(false);
+  }
+
+
+
 
   const handleRegisterSuccess = (email, userName) => {
     if(email.includes('@gmail.com')){
@@ -58,7 +69,7 @@ function App(props) {
 
   const handleHowToPlay = () => {
     
-    setHowToPlay(true);
+    setFaq(true);
     setHomePage(false);
   }
 
@@ -92,48 +103,104 @@ function App(props) {
     if(index === 1) {
       
       if(!homepage) {
+        setHomePage(true);
         setGameModes(false);
         setShop(false);
         setShowSignup(false);
         setHowToPlay(false);
-        setHomePage(true);
         setActiveSidebarIndex(1);
         setCasual(false);
         setRanked(false);
+        setLeaderboard(false);
+        setFaq(false);
+        setContact(false);
+        setPractie(false);
       }
       
     }else if(index === 2){
 
       if(!gameModes){
         setGameModes(true);
+        setActiveSidebarIndex(2);
         setHomePage(false);
         setShop(false);
-        setActiveSidebarIndex(2);
-        setPractie(false);
+        setShowSignup(false);
         setHowToPlay(false);
         setCasual(false);
         setRanked(false);
+        setLeaderboard(false);
+        setFaq(false);
+        setContact(false);
+        setPractie(false);
       }
       
     }else if(index === 3) {
 
       if(!shop) {
+        setShop(true);
+        setActiveSidebarIndex(3);
         setGameModes(false);
         setHomePage(false);
-        setShop(true)
-        setActiveSidebarIndex(3)
-        setPractie(false);
+        setShowSignup(false);
+        setHowToPlay(false);
         setCasual(false);
         setRanked(false);
+        setLeaderboard(false);
+        setFaq(false);
+        setContact(false);
+        setPractie(false);
       }
       
     }else if(index === 4) {
 
-      setActiveSidebarIndex(4)
+      if(!leaderboard) {
+        setLeaderboard(true);
+        setActiveSidebarIndex(4);
+        setShop(false);
+        setGameModes(false);
+        setHomePage(false);
+        setShowSignup(false);
+        setHowToPlay(false);
+        setCasual(false);
+        setRanked(false);
+        setFaq(false);
+        setContact(false);
+        setPractie(false);
+      }
+
     }else if(index === 5) {
-      setActiveSidebarIndex(5)
+
+      if(!faq) {
+        setFaq(true);
+        setActiveSidebarIndex(5);
+        setLeaderboard(false);
+        setShop(false);
+        setGameModes(false);
+        setHomePage(false);
+        setShowSignup(false);
+        setHowToPlay(false);
+        setCasual(false);
+        setRanked(false);
+        setContact(false);
+        setPractie(false);
+      }
+
     }else if(index === 6) {
-      setActiveSidebarIndex(6)
+      
+      if(!contact) {
+        setContact(true);
+        setActiveSidebarIndex(6);
+        setFaq(false);
+        setLeaderboard(false);
+        setShop(false);
+        setGameModes(false);
+        setHomePage(false);
+        setShowSignup(false);
+        setHowToPlay(false);
+        setCasual(false);
+        setRanked(false);
+        setPractie(false);
+      }
     }
   }
 
@@ -153,14 +220,23 @@ function App(props) {
     setShop(false);
     setHowToPlay(false);
     setActiveSidebarIndex(2);
+    setContact(false);
+    setFaq(false);
+    setLeaderboard(false);
   }
 
   const handleRankedClick = () => {
+    setPractie(false);
+    setCasual(false);
     setGameModes(false);
     setRanked(true);
-    setCasual(false);
-    setPractie(false);
     setHomePage(false);
+    setShop(false);
+    setHowToPlay(false);
+    setActiveSidebarIndex(2);
+    setContact(false);
+    setFaq(false);
+    setLeaderboard(false);
   }
 
   
@@ -223,7 +299,7 @@ function App(props) {
       }
 
 
-      {!homepage && !showSignup && (practice || casual || ranked) && !login && (
+      {!homepage && !showSignup && (practice || casual || ranked || shop || leaderboard || faq || contact) && !login && (
         <div>
           <h1>Please sign in (must code this)</h1>
         </div>
@@ -267,6 +343,24 @@ function App(props) {
           />
         </div>
       )}
+
+      {!homepage && !showSignup && contact && login && (
+
+        <div>
+        
+          <Contact handleBack={goBackContact}/>
+        </div>
+      )}
+
+      {!homepage && !showSignup && faq && login && (
+
+        <div>
+          <Sidebar activeIndex={activeSidebarIndex} username={username} handleClick = {handleSidebarClick} />
+          <FAQ />
+        </div>
+      )
+
+      }
 
       
 
