@@ -1,3 +1,4 @@
+
 # RocketMath
 
 Wesbite that displays a game called Rocket Math; a series of math problems that have to be completed in a short amount of time. Includes a database of all users, leaderboard, and ranked system.
@@ -5,6 +6,10 @@ Wesbite that displays a game called Rocket Math; a series of math problems that 
 
 
 The video above is just me displaying the frontend of the project, I have to make the video short because of the 10mb limit.
+
+# Rocket-Math-Game
+Wesbite that displays a game called Rocket Math; a series of math problems that have to be completed in a short amount of time.Includes a database of all users, leaderboard, and ranked system.
+
 
 Some important things to note is that when a person registers they are inputted into a database using sql. The sql database only takes unique usernames, and an error will pop up if: 1) Somone tries to create an account with an already existing username. 2) They login with an incorrect username and password.
 
