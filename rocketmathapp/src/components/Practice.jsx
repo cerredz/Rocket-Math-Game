@@ -91,19 +91,22 @@ const Practice = (props) => {
 
   }
 
+  const handleReviewRules = () => {
+
+    props.PracticeReviewRules();
+  }
+
   return (
     
       
       <div  className='practice-container'>
         <div style={containerStyle} className='practice-info'>
           <h1 style={titleStyle} >Practice</h1>
-          <Game showNumbers={false} color="rgb(27, 218, 231)" 
+          <Game HandleReviewRules={handleReviewRules} showNumbers={false} color="rgb(27, 218, 231)" 
           handleCorrectAnswer = {handleCorrectAnswer}
           handleWrongAnswer = {handleWrongAnswer}
           />
-          <div className='return-button-container'> 
-            <button onClick={() => props.handleBack()} className='return-button'>Return to Homepage</button>
-          </div>
+          
         </div>
         
       </div>

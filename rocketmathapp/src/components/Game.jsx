@@ -307,6 +307,7 @@ const Game = (props) => {
                 style={reviewRulesButton}
                 onMouseEnter={handleReviewButtonHover}
                 onMouseLeave={handleReviewButtonLeave}
+                onClick={props.HandleReviewRules}
                 >Review Rules</button>
                 <button
                 className='light-blue' 

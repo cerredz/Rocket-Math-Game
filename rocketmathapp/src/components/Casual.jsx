@@ -573,6 +573,7 @@ return (
                         style={reviewButton}
                         onMouseEnter={handleReviewButtonEnter}
                         onMouseLeave={handleReviewButtonLeave}
+                        onClick={props.casualClick}
                         >REVIEW RULES</button>
                     </div>
                 </div>

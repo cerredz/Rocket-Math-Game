@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { FAQ, Contact, Ranked, Playlist, Navbar, Sidebar, Dashboard, Signup, LoginNavbar, HowToPlay, Shop, GameModes, } from './components/components';
+import { Leaderboard , Error, FAQ, Contact, Ranked, Playlist, Navbar, Sidebar, Dashboard, Signup, LoginNavbar, HowToPlay, Shop, GameModes, } from './components/components';
 
 
 
@@ -29,13 +29,17 @@ function App(props) {
   }
 
   function goBack () {
-    setShowSignup(false);
+    setShowSignup(false); 
+    setHomePage(true);
+    setActiveSidebarIndex(1);
+
   }
 
   const goBackGame = () => {
     setActiveSidebarIndex(1);
     setHomePage(true);
     setGameModes(false);
+
   }
 
   const goBackContact = () => {
@@ -51,8 +55,18 @@ function App(props) {
     if(email.includes('@gmail.com')){
       setUserEmail(email);
       setUsername(userName);
-      setLogin(!login);
-      setShowSignup(!showSignup);
+      setLogin(true);
+      setShowSignup(false);
+      setHomePage(true);
+      setGameModes(false);
+      setCasual(false);
+      setRanked(false);
+      setFaq(false);
+      setContact(false);
+      setShop(false);
+      setLeaderboard(false);
+      setActiveSidebarIndex(1);
+
     }else {
       alert("Please Enter a Valid Google Email Address");
     }
@@ -61,10 +75,18 @@ function App(props) {
   const handleLoginSuccess = (userName) => {
     setUsername(userName);
     console.log("Login Success")
-    setLogin(!login);
+    setLogin(true);
 
-    setShowSignup(!showSignup);
+    setShowSignup(false);
     setHomePage(true);
+    setGameModes(false);
+    setCasual(false);
+    setRanked(false);
+    setFaq(false);
+    setContact(false);
+    setShop(false);
+    setLeaderboard(false);
+    setActiveSidebarIndex(1);
   }
 
   const handleHowToPlay = () => {
@@ -239,6 +261,37 @@ function App(props) {
     setLeaderboard(false);
   }
 
+  const handleLoginClick = () => {
+
+    setShowSignup(true);
+    setGameModes(false);
+    setPractie(false);
+    setCasual(false);
+    setRanked(false);
+    setShop(false);
+    setLeaderboard(false);
+    setFaq(false);
+    setContact(false);
+  }
+
+  const handlePracticeReviewRules = () => {
+    setPractie(false);
+    setFaq(true);
+    setActiveSidebarIndex(5)
+  }
+
+  const handleCasualReviewRules = () => {
+    setCasual(false);
+    setFaq(true);
+    setActiveSidebarIndex(5);
+  }
+
+  const handleRankedReviewRules = () => {
+    setRanked(false);
+    setFaq(true);
+    setActiveSidebarIndex(5);
+  }
+
   
   return (
     <div>
@@ -261,7 +314,7 @@ function App(props) {
         </div>
       )}
 
-      {showSignup && !howToPlay && !shop && !gameModes &&<Signup  handleBack={goBack} handleRegisterSuccess={handleRegisterSuccess} handleLoginSuccess={handleLoginSuccess} email={props.email}/>}
+      {showSignup  &&<Signup  handleBack={goBack} handleRegisterSuccess={handleRegisterSuccess} handleLoginSuccess={handleLoginSuccess} email={props.email}/>}
      
       { !homepage && !showSignup && howToPlay && (
         <div>
@@ -273,16 +326,18 @@ function App(props) {
 
       }
 
-      {!homepage && !showSignup && !howToPlay && shop && (
+      {!homepage && !showSignup && !howToPlay && shop && login &&(
         
         <div>
           <Sidebar activeIndex={activeSidebarIndex} username={username} handleClick = {handleSidebarClick}/>
+          <LoginNavbar username={username} handleCasualClick={handleCasualClick} handleRankedClick={handleRankedClick}/>
+
           <Shop />
         </div>
         
       )}
 
-      { !homepage && !showSignup && gameModes && (
+      { !homepage && !showSignup && gameModes && login &&(
 
         <div>
           <Sidebar activeIndex={activeSidebarIndex} username={username}  handleClick = {handleSidebarClick}/>
@@ -299,9 +354,11 @@ function App(props) {
       }
 
 
-      {!homepage && !showSignup && (practice || casual || ranked || shop || leaderboard || faq || contact) && !login && (
+      {!homepage && !showSignup && ( gameModes || practice || casual || ranked || shop || leaderboard || faq || contact) && !login && (
         <div>
-          <h1>Please sign in (must code this)</h1>
+          <Error 
+          loginClick={handleLoginClick} 
+          handleRegisterSuccess={handleRegisterSuccess}/>
         </div>
       )}
 
@@ -314,6 +371,7 @@ function App(props) {
           casual={false}
           ranked={false}
           username={username}
+          handlePracticeReviewRules={handlePracticeReviewRules}
           />
         </div>
       )}
@@ -327,6 +385,7 @@ function App(props) {
           practice={false}
           ranked={false}
           username={username}
+          casualReviewRulesClick={handleCasualReviewRules}
           />
         </div>
       )}
@@ -340,6 +399,8 @@ function App(props) {
           practice={false}
           ranked={true}
           username={username}
+          rankedReviewRulesClick = {handleRankedReviewRules}
+          
           />
         </div>
       )}
@@ -361,6 +422,15 @@ function App(props) {
       )
 
       }
+
+      {!homepage && !showSignup && leaderboard && login && (
+        <div>
+          <LoginNavbar username={username} handleCasualClick={handleCasualClick} handleRankedClick={handleRankedClick}/>
+          <Sidebar activeIndex={activeSidebarIndex} username={username} handleClick = {handleSidebarClick} />
+          <Leaderboard />
+          
+        </div>
+      )}
 
       
 

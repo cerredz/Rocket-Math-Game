@@ -191,6 +191,38 @@ app.post("/ranked", (req, res) => {
 
 })
 
+app.get('/players', (req, res) => {
+
+    //list of all players username and level
+    var allPlayers = []
+    //list of the top players to be displayed on the leaderboard
+    var topPlayers = []
+
+    db.query("SELECT userName, level FROM users", (err, result) => {
+        if(err){
+            console.log(err);
+            res.sendStatus(500);
+            return;
+        }else {
+
+            result.forEach((currPlayer) => {
+
+                const player = {
+                    userName: currPlayer.userName,
+                    level: currPlayer.level,
+                };
+                allPlayers.push(player)
+            })
+
+            allPlayers.sort((a,b) => {return b.level - a.level})
+            topPlayers = allPlayers.splice(0,3);
+            
+            console.log(topPlayers);
+            res.send(topPlayers);
+        }
+    })
+})
+
 
 
 app.listen(3001, () => {

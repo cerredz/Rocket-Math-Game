@@ -10,10 +10,22 @@ const Playlist = (props) => {
     const [ranked, setRanked] = useState(Boolean(props.ranked));
     const [username, setUserName] = useState(props.username);
 
+
+    const handlePracticeReviewRules = () => {
+      props.handlePracticeReviewRules();
+    }
+
+    const handleCasualReviewRules = () => {
+      props.casualReviewRulesClick();
+    }
+
+    const handleRankedReviewRules = () => {
+      props.rankedReviewRulesClick();
+    }
   return (
     <div>
         {practice && (
-            <Practice />
+            <Practice PracticeReviewRules={handlePracticeReviewRules} />
         )}
         {casual && (
             <Casual 
@@ -21,6 +33,7 @@ const Playlist = (props) => {
             description="Rocket Math casual mode is a stress-free environment where players can brush up on their arithmetic skills at their own pace."
             username={username}
             color="rgb(12, 188, 219)"
+            casualClick={handleCasualReviewRules}
             
             />
         )}
@@ -30,6 +43,7 @@ const Playlist = (props) => {
           description="Rocket Math's ranked mode puts players against the best as they compete for the top ranks and prove who is the Rocket Math Grandmaster"
           username={username}
           color="rgb(220, 9, 228)"
+          rankedClick={handleRankedReviewRules}
           />
         )}
 

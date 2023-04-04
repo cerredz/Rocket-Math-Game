@@ -625,6 +625,10 @@ const handlePlayAgainLeave = () => {
     setPlayAgainButton(startingPlayAgainButton)
 }
 
+const handleReviewRulesClick = () => {
+    props.rankedClick();
+}
+
   
 
 return (
@@ -648,6 +652,7 @@ return (
                         style={reviewButton}
                         onMouseEnter={handleReviewButtonEnter}
                         onMouseLeave={handleReviewButtonLeave}
+                        onClick={handleReviewRulesClick}
                         >REVIEW RULES</button>
                     </div>
                 </div>

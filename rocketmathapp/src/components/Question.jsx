@@ -41,8 +41,6 @@ const Question = (props) => {
 return (
     <div className='question-container'>
 
-
-        
         <div className='question-number' style={{background: numberBackground, boxShadow: numberBoxShadow}}>
             <h3 style={{marginBottom: `0`}}>{props.questionNumber}</h3>
         </div>
