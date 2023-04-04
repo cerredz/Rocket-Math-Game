@@ -3,7 +3,9 @@
 
 Wesbite that displays a game called Rocket Math; a series of math problems that have to be completed in a short amount of time. Includes a database of all users, leaderboard, and ranked system.
 
+# Rocket Math Showcase
 
+Click here to view a full video of me displaying Rocket Math -> https://www.youtube.com/watch?v=TFrsRpS7qqY
 
 The video above is just me displaying the frontend of the project, I have to make the video short because of the 10mb limit.
 
